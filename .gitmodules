@@ -1,0 +1,12 @@
+[submodule "bundler"]
+	path = bundler
+	url = https://github.com/bundler-project/bundler
+[submodule "iperf"]
+	path = iperf
+	url = https://github.com/ccp-project/iperf
+[submodule "empirical-traffic-gen"]
+	path = empirical-traffic-gen
+	url = https://github.com/ccp-project/empirical-traffic-gen
+[submodule "nimbus"]
+	path = nimbus
+	url = https://github.com/ccp-project/nimbus
