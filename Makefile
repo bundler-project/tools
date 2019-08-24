@@ -16,12 +16,13 @@ rustup.sh:
 ~/.cargo/bin/cargo: rustup.sh
 	sh rustup.sh -y --default-toolchain=nightly
 
-bundler/target/debug/inbox bundler/target/debug/outbox: ~/.cargo/bin/cargo
+bundler/target/debug/inbox bundler/target/debug/outbox: ~/.cargo/bin/cargo bundler/src/lib.rs
 	sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt install -y \
 		libtool automake autoconf \
+		llvm llvm-dev clang libclang-dev \
 		libnl-3-dev libnl-genl-3-dev libnl-route-3-dev libnfnetlink-dev \
 		bison flex libpcap-dev
 	cd bundler && ~/.cargo/bin/cargo build
 
-nimbus/target/debug/nimbus: ~/.cargo/bin/cargo
+nimbus/target/debug/nimbus: ~/.cargo/bin/cargo nimbus/src/lib.rs
 	cd nimbus && ~/.cargo/bin/cargo build
