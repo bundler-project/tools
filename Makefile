@@ -1,6 +1,7 @@
 all: iperf/src/iperf \
 	empirical-traffic-gen/bin/etgClient empirical-traffic-gen/bin/etgServer \
 	bundler/target/debug/inbox bundler/target/debug/outbox \
+	nimbus/target/debug/nimbus
 
 iperf/src/iperf: iperf/src/*.c
 	cd iperf && ./autogen.sh && ./configure
@@ -21,3 +22,6 @@ bundler/target/debug/inbox bundler/target/debug/outbox: ~/.cargo/bin/cargo
 		libnl-3-dev libnl-genl-3-dev libnl-route-3-dev libnfnetlink-dev \
 		bison flex libpcap-dev
 	cd bundler && ~/.cargo/bin/cargo build
+
+nimbus/target/debug/nimbus: ~/.cargo/bin/cargo
+	cd nimbus && ~/.cargo/bin/cargo build
