@@ -1,7 +1,8 @@
 all: iperf/src/iperf \
 	empirical-traffic-gen/bin/etgClient empirical-traffic-gen/bin/etgServer \
 	bundler/target/debug/inbox bundler/target/debug/outbox \
-	nimbus/target/debug/nimbus
+	nimbus/target/debug/nimbus \
+	mahimahi/src/frontend/mm-delay mahimahi/src/frontend/mm-link
 
 iperf/src/iperf: iperf/src/*.c
 	cd iperf && ./autogen.sh && ./configure
@@ -26,3 +27,11 @@ bundler/target/debug/inbox bundler/target/debug/outbox: ~/.cargo/bin/cargo bundl
 
 nimbus/target/debug/nimbus: ~/.cargo/bin/cargo nimbus/src/lib.rs
 	cd nimbus && ~/.cargo/bin/cargo build
+
+mahimahi/src/frontend/mm-delay mahimahi/src/frontend/mm-link: $(shell find mahimahi -name "*.cc")
+	sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt install -y \
+		protobuf-compiler libprotobuf-dev autotools-dev dh-autoreconf \
+		iptables pkg-config dnsmasq-base apache2-bin apache2-dev \
+		debhelper libssl-dev ssl-cert libxcb-present-dev libcairo2-dev libpango1.0-dev
+	cd mahimahi && ./autogen.sh && ./configure
+	cd mahimahi && make -j && sudo make install

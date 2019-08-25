@@ -10,3 +10,6 @@
 [submodule "nimbus"]
 	path = nimbus
 	url = https://github.com/ccp-project/nimbus
+[submodule "mahimahi"]
+	path = mahimahi
+	url = https://github.com/fcangialosi/mahimahi.git
