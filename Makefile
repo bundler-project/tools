@@ -22,6 +22,7 @@ bundler/target/debug/inbox bundler/target/debug/outbox: ~/.cargo/bin/cargo bundl
 		libtool automake autoconf \
 		llvm llvm-dev clang libclang-dev \
 		libnl-3-dev libnl-genl-3-dev libnl-route-3-dev libnfnetlink-dev \
+		libdb-dev \
 		bison flex libpcap-dev
 	cd bundler && ~/.cargo/bin/cargo build
 
