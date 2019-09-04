@@ -13,3 +13,6 @@
 [submodule "mahimahi"]
 	path = mahimahi
 	url = https://github.com/fcangialosi/mahimahi.git
+[submodule "udping"]
+	path = udping
+	url = https://github.com/akshayknarayan/udping.git
