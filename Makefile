@@ -36,3 +36,6 @@ mahimahi/src/frontend/mm-delay mahimahi/src/frontend/mm-link: $(shell find mahim
 		debhelper libssl-dev ssl-cert libxcb-present-dev libcairo2-dev libpango1.0-dev
 	cd mahimahi && ./autogen.sh && ./configure
 	cd mahimahi && make -j && sudo make install
+
+udping/target/debug/udping_server udping/target/debug/udping_client: ~/.cargo/bin/cargo udping/src/lib.rs
+	cd udping && ~/.cargo/bin/cargo build
