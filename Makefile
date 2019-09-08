@@ -2,6 +2,7 @@ all: iperf/src/iperf \
 	empirical-traffic-gen/bin/etgClient empirical-traffic-gen/bin/etgServer \
 	bundler/target/debug/inbox bundler/target/debug/outbox \
 	nimbus/target/debug/nimbus \
+	udping/target/debug/udping_server udping/target/debug/udping_client \
 	mahimahi/src/frontend/mm-delay mahimahi/src/frontend/mm-link
 
 iperf/src/iperf: iperf/src/*.c
