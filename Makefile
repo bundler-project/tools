@@ -18,7 +18,7 @@ rustup.sh:
 ~/.cargo/bin/cargo: rustup.sh
 	sh rustup.sh -y --default-toolchain=nightly
 
-bundler/target/debug/inbox bundler/target/debug/outbox: ~/.cargo/bin/cargo bundler/src/lib.rs
+bundler/target/debug/inbox bundler/target/debug/outbox: ~/.cargo/bin/cargo $(shell find bundler/src -name "*.rs")
 	sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt install -y \
 		libtool automake autoconf \
 		llvm llvm-dev clang libclang-dev \
@@ -38,5 +38,5 @@ mahimahi/src/frontend/mm-delay mahimahi/src/frontend/mm-link: $(shell find mahim
 	cd mahimahi && ./autogen.sh && ./configure
 	cd mahimahi && make -j && sudo make install
 
-udping/target/debug/udping_server udping/target/debug/udping_client: ~/.cargo/bin/cargo udping/src/lib.rs
+udping/target/debug/udping_server udping/target/debug/udping_client: ~/.cargo/bin/cargo $(shell find udping/src -name "*.rs")
 	cd udping && ~/.cargo/bin/cargo build
