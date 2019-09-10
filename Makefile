@@ -3,6 +3,7 @@ all: iperf/src/iperf \
 	bundler/target/debug/inbox bundler/target/debug/outbox \
 	nimbus/target/debug/nimbus \
 	udping/target/debug/udping_server udping/target/debug/udping_client \
+	ccp_copa/target/debug/copa \
 	mahimahi/src/frontend/mm-delay mahimahi/src/frontend/mm-link
 
 iperf/src/iperf: iperf/src/*.c
@@ -40,3 +41,6 @@ mahimahi/src/frontend/mm-delay mahimahi/src/frontend/mm-link: $(shell find mahim
 
 udping/target/debug/udping_server udping/target/debug/udping_client: ~/.cargo/bin/cargo $(shell find udping/src -name "*.rs")
 	cd udping && ~/.cargo/bin/cargo build
+
+ccp_copa/target/debug/copa: ~/.cargo/bin/cargo $(shell find ccp_copa/src -name "*.rs")
+	cd ccp_copa && ~/.cargo/bin/cargo build

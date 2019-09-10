@@ -16,3 +16,6 @@
 [submodule "udping"]
 	path = udping
 	url = https://github.com/akshayknarayan/udping.git
+[submodule "ccp_copa"]
+	path = ccp_copa
+	url = https://github.com/akshayknarayan/ccp_copa/
